@@ -15,13 +15,13 @@ public class GetAboutByIdQueryHandler
 
     public async Task<GetAboutByIdQueryResult> Handle(GetAboutByIdQuery query)
     {
-        var values = await _repository.GetByIdAsync(query.Id);
+        var value = await _repository.GetByIdAsync(query.Id);
         return new GetAboutByIdQueryResult
         {
-            AboutID = values.AboutID,
-            Description = values.Description,
-            ImageUrl = values.ImageUrl,
-            Title = values.Title
+            AboutID = value.AboutID,
+            Description = value.Description,
+            ImageUrl = value.ImageUrl,
+            Title = value.Title
         };
     }
 }
