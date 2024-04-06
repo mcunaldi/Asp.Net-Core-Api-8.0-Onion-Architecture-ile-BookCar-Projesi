@@ -11,4 +11,10 @@ public class CarRepository(CarBookContext context) : ICarRepository
         var values = context.Cars.Include(x => x.Brand).ToList();
         return values;
     }
+
+    public List<Car> GetLast5CarsWithBrands()
+    {
+        var values = context.Cars.Include(x=> x.Brand).OrderByDescending(x=> x.CarID).Take(5).ToList();
+        return values;
+    }
 }
