@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UdemyCarBook.Persistence.Context;
 
@@ -11,9 +12,11 @@ using UdemyCarBook.Persistence.Context;
 namespace UdemyCarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20240407123541_Add_Blog_Author")]
+    partial class Add_Blog_Author
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,7 +112,11 @@ namespace UdemyCarBook.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogID"));
 
-                    b.Property<int>("AuthorID")
+                    b.Property<string>("AuthorID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AuthorID1")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryID")
@@ -128,7 +135,7 @@ namespace UdemyCarBook.Persistence.Migrations
 
                     b.HasKey("BlogID");
 
-                    b.HasIndex("AuthorID");
+                    b.HasIndex("AuthorID1");
 
                     b.HasIndex("CategoryID");
 
@@ -485,7 +492,7 @@ namespace UdemyCarBook.Persistence.Migrations
                 {
                     b.HasOne("UdemyCarBook.Domain.Entities.Author", "Author")
                         .WithMany("Blogs")
-                        .HasForeignKey("AuthorID")
+                        .HasForeignKey("AuthorID1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
