@@ -42,4 +42,11 @@ public class BlogsController(IMediator mediator) : ControllerBase
         await mediator.Send(command);
         return Ok("Blog başarıyla güncellendi.");
     }
+
+    [HttpGet("GetLast3BlogsWithAuthorsList")]
+    public async Task<IActionResult> GetLast3BlogsWithAuthorsList()
+    {
+        var value = await mediator.Send(new GetLast3BlogsWithAuthorsQuery());
+        return Ok(value);
+    }
 }

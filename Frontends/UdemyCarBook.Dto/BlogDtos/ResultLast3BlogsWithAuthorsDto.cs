@@ -1,5 +1,5 @@
-﻿namespace UdemyCarBook.Application.Features.Mediator.Results.BlogResults;
-public class GetLast3BlogsWithAuthorsQueryResult
+﻿namespace UdemyCarBook.Dto.BlogDtos;
+public class ResultLast3BlogsWithAuthorsDto
 {
     public int BlogID { get; set; }
     public string Title { get; set; }
