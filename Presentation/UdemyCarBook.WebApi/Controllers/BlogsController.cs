@@ -56,4 +56,11 @@ public class BlogsController(IMediator mediator) : ControllerBase
         var value = await mediator.Send(new GetAllBlogsWithAuthorQuery());
         return Ok(value);
     }
+
+    [HttpGet("GetlBlogByAuthorId")]
+    public async Task<IActionResult> GetlBlogByAuthorId(int id)
+    {
+        var value = await mediator.Send(new GetBlogByAuthorIdQuery(id));
+        return Ok(value);
+    }
 }

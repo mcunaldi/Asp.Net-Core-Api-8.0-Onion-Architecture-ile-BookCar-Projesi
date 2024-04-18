@@ -42,4 +42,11 @@ public class TagCloudsController(IMediator mediator) : ControllerBase
         await mediator.Send(command);
         return Ok("Etiketler başarıyla güncellendi.");
     }
+
+    [HttpGet("GetTagCloudByBlogId")]
+    public async Task<IActionResult> GetTagCloudByBlogId(int id)
+    {
+        var values = await mediator.Send(new GetTagCloudByBlogIdQuery(id));
+        return Ok(values);
+    }
 }

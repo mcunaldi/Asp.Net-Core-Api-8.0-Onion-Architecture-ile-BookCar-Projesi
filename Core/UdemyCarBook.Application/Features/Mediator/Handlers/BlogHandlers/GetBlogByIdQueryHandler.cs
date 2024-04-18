@@ -13,6 +13,7 @@ public class GetBlogByIdQueryHandler(IRepository<Blog> repository) : IRequestHan
         return new GetBlogByIdQueryResult
         {
             AuthorID = value.AuthorID,
+            BlogID = value.BlogID,
             CategoryID = value.CategoryID,
             CoverImageUrl = value.CoverImageUrl,
             CreatedDate = value.CreatedDate,
