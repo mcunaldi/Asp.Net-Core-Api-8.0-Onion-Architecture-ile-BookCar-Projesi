@@ -1,0 +1,66 @@
+﻿@model List<ResultAllBlogsWithAuthorDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Ana Sayfa Blog Alanı</h4>
+                        <p class="card-subtitle mb-4">
+                            Bloglarla ilgili silme, güncelleme ve blog listesi erişimini görebilirsiniz. Yeni blog ekleme işlemi admin tarafından yapılmamaktadır. Eğer blog işlemi yapmak isterseniz sisteme yazar olarak giriş yapmanız gerekmektedir. Her yazar sadece kendi bloglarını düzenleyebilir. Bunun için uygulamada Login/WriterLogin sayfası üzerinden giriş yapabilirsiniz.'
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+
+                                @if (Model.Any())
+                                {
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Başlık</th>
+                                            <th>Yazar</th>
+                                            <th>Kategori</th>
+                                            <th>Tarih</th>
+                                            <th>Kaldır</th>
+                                            <th>Blog'u Aç</th>
+                                            <th>Yorumlar</th>
+                                        </tr>
+                                    </thead>
+                                }
+                                else
+                                {
+                                    <span><b>Hiçbir kayıt bulunamadı. Aşağıdaki butondan ekleyebilirsiniz.</b></span>
+                                }
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.AuthorName</td>
+                                            <td>@item.CategoryID</td>
+                                            <td>@item.CreatedDate.ToLongDateString()</td>
+                                            <td><a href="/Admin/AdminBlog/RemoveBlog/@item.BlogID" class="btn btn-outline-danger">Kaldır</a></td>
+                                            <td><a href="/Blog/BlogDetail/@item.BlogID" class="btn btn-outline-dark">Blog'u Aç</a></td>
+                                            <td><a href="/Admin/AdminComment/Index/@item.BlogID" class="btn btn-outline-warning">Yorumlar</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -32,7 +32,7 @@ public class FooterAddressesController(IMediator mediator) : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> RemoveFooterAddress(int id)
     {
-        await mediator.Send(new GetFooterAddressByIdQuery(id));
+        await mediator.Send(new RemoveFooterAddressCommand(id));
         return Ok("Alt Adres bilgisi silindi");
     }
 

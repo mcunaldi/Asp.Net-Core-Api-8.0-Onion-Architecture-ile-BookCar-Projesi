@@ -7,8 +7,7 @@
 
 <div class="page-content">
     <div class="container-fluid">
-
-        <!-- start page title --><div class="row">
+        <div class="row">
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
@@ -21,7 +20,6 @@
 
                                 @if (Model.Any())
                                 {
-
                                     <thead>
                                         <tr>
                                             <th>Başlık</th>
@@ -51,22 +49,14 @@
                                             <td><a href="/Admin/AdminBanner/UpdateBanner/@item.BannerID" class="btn btn-outline-dark">Youtube'da Aç</a></td>
                                         </tr>
                                     }
-
-
                                 </tbody>
                             </table>
                             <a href="/Admin/AdminBanner/CreateBanner" class="btn btn-outline-primary mt-2">Yeni Banner Girişi</a>
                         </div>
-
                     </div>
-                    <!-- end card-body-->
                 </div>
-                <!-- end card -->
-
             </div>
         </div>
-        <!-- end page title -->
-
-    </div> <!-- container-fluid -->
+    </div>
 </div>
 

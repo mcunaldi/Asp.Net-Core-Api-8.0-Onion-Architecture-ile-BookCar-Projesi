@@ -27,6 +27,11 @@ public class CommentRepository<T>(CarBookContext context) : IGenericRepository<C
         return context.Comments.Find(id);
     }
 
+    public List<Comment> GetCommentByBlogId(int id)
+    {
+        return context.Comments.Where(x=> x.BlogID == id).ToList();
+    }
+
     public void Remove(Comment entity)
     {
         var value = context.Comments.Find(entity.CommentID);

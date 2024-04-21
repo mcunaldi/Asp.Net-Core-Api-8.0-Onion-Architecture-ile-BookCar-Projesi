@@ -10,6 +10,9 @@ public class UpdateTestimonialCommandHandler(IRepository<Testimonial> repository
     {
         var value = await repository.GetByIdAsync(request.TestimonialID);
         value.Name = request.Name;
+        value.Title = request.Title;
+        value.Comment = request.Comment;
+        value.ImageUrl = request.ImageUrl;        
         await repository.UpdateAsync(value);
     }
 }

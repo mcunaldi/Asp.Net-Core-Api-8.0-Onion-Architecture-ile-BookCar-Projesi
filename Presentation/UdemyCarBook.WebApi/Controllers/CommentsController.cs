@@ -42,4 +42,11 @@ public class CommentsController(IGenericRepository<Comment> repository) : Contro
         var value = repository.GetById(id);
         return Ok(value);
     }
+
+    [HttpGet("CommentListByBlog")]
+    public IActionResult CommentListByBlog(int id)
+    {
+        var value = repository.GetCommentByBlogId(id);
+        return Ok(value);
+    }
 }

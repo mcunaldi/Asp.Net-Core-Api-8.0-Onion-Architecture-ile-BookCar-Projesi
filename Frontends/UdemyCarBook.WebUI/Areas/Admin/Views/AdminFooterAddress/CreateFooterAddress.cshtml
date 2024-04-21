@@ -1,0 +1,42 @@
+﻿@model CreateFooterAddressDto
+@{
+    ViewData["Title"] = "CreateAuthor";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Adres Bilgisi Girişi</h4>
+                        <p class="card-subtitle mb-4">
+                            Adres alanına ait bilgileri aşağıdaki panelden girebilirsiniz. Tema bütünlüğünün bozulmaması için lütfen 1 tane veri girişi yapınız. Mevcutta veriniz varsa düzenleyiniz. Yeni veri girişi yaparsanız öncekini siliniz.
+                        </p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleInputAddress">Adres</label>
+                                <input type="text" class="form-control" id="exampleInputAddress" asp-for="Address" placeholder="Adres Bilgisini Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPhone">Telefon Numarası</label>
+                                <input type="text" class="form-control" id="exampleInputPhone" asp-for="PhoneNumber" placeholder="Telefon Numaranızı Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail">Mail</label>
+                                <input type="text" class="form-control" id="exampleInputEmail" asp-for="Email" placeholder="Mail Adresinizi Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputDescription">Açıklama</label>
+                                <input type="text" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklamayı Giriniz">
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adresi Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

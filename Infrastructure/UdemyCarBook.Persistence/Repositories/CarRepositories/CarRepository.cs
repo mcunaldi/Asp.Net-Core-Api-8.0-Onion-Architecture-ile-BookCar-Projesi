@@ -6,6 +6,12 @@ using UdemyCarBook.Persistence.Context;
 namespace UdemyCarBook.Persistence.Repositories.CarRepositories;
 public class CarRepository(CarBookContext context) : ICarRepository
 {
+    public int GetCarCount()
+    {
+        var value = context.Cars.Count();
+        return value;
+    }
+
     public List<Car> GetCarsListWithBrands()
     {
         var values = context.Cars.Include(x => x.Brand).ToList();
