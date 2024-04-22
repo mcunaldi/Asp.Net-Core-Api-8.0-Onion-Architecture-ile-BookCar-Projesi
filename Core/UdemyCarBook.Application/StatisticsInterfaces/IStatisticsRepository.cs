@@ -1,16 +1,17 @@
 ﻿namespace UdemyCarBook.Application.StatisticsInterfaces;
 public interface IStatisticsRepository
 {
+    int GetCarCount();
     int GetLocationCount();
     int GetAuthorCount();
     int GetBlogCount();
     int GetBrandCount();
-    double GetAvgRentPriceForDaily();
-    double GetAvgRentPriceForWeekly();
-    double GetAvgRentPriceForMonthly();
+    decimal GetAvgRentPriceForDaily();
+    decimal GetAvgRentPriceForWeekly();
+    decimal GetAvgRentPriceForMonthly();
     int GetCarCountByTransmissionIsAuto();
-    string BrandNameByMaxCar();
-    string BlogTitleByMaxBlogComment();
+    string GetBrandNameByMaxCar();
+    string GetBlogTitleByMaxBlogComment();
     int GetCarCountBySmallerThan1000();
     int GetCarCountByFuelGasolineOrDiesel();
     int GetCarCountByFuelElectric();
