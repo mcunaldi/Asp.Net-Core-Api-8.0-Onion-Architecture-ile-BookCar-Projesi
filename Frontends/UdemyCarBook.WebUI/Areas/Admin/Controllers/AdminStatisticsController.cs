@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using UdemyCarBook.Dto.AuthorDtos;
 using UdemyCarBook.Dto.StatisticsDtos;
 
 namespace UdemyCarBook.WebUI.Areas.Admin.Controllers;
@@ -144,6 +143,33 @@ public class AdminStatisticsController : Controller
 
         #endregion
 
+        #region GetBrandNameByMaxCar
+
+        var responseMessage10 = await client.GetAsync("https://localhost:7038/api/Statistics/GetBrandNameByMaxCar");
+        if (responseMessage10.IsSuccessStatusCode)
+        {
+            int bBrandNameByMaxCarRandom = random.Next(0, 101);
+            var jsonData10 = await responseMessage10.Content.ReadAsStringAsync();
+            var values10 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData10);
+            ViewBag.bBrandNameByMaxCar = values10!.BrandNameByMaxCar;
+            ViewBag.bBrandNameByMaxCarRandom = bBrandNameByMaxCarRandom;
+        }
+        #endregion
+
+        #region GetBlogTitleByMaxBlogComment-11
+
+        var responseMessage11 = await client.GetAsync("https://localhost:7038/api/Statistics/GetBlogTitleByMaxBlogComment");
+        if (responseMessage11.IsSuccessStatusCode)
+        {
+            int blogTitleByMaxBlogComment = random.Next(0, 101);
+            var jsonData11 = await responseMessage11.Content.ReadAsStringAsync();
+            var values11 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData11);
+            ViewBag.blogTitleByMaxBlogComment = values11!.BlogTitleByMaxBlogComment;
+            ViewBag.blogTitleByMaxBlogCommentRandom = blogTitleByMaxBlogComment;
+        }
+
+        #endregion
+
         #region CarCountBySmallerThan1000-12
 
         var responseMessage12 = await client.GetAsync("https://localhost:7038/api/Statistics/GetCarCountBySmallerThan1000");
@@ -172,7 +198,6 @@ public class AdminStatisticsController : Controller
 
         #endregion
 
-
         #region GetCarCountByFuelGasolineOrDiesel-14
 
         var responseMessage14 = await client.GetAsync("https://localhost:7038/api/Statistics/GetCarCountByFuelElectric");
@@ -186,6 +211,35 @@ public class AdminStatisticsController : Controller
         }
 
         #endregion
+
+        #region GetCarBrandAndModelByRentPriceDailyMax-15
+
+        var responseMessage15 = await client.GetAsync("https://localhost:7038/api/Statistics/GetCarBrandAndModelByRentPriceDailyMax");
+        if (responseMessage15.IsSuccessStatusCode)
+        {
+            int carBrandAndModelByRentPriceDailyMaxRandom = random.Next(0, 101);
+            var jsonData15 = await responseMessage15.Content.ReadAsStringAsync();
+            var values15 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData15);
+            ViewBag.CarBrandAndModelByRentPriceDailyMax = values15!.CarBrandAndModelByRentPriceDailyMax;
+            ViewBag.CarBrandAndModelByRentPriceDailyMaxRandom = carBrandAndModelByRentPriceDailyMaxRandom;
+        }
+
+        #endregion
+
+        #region GetCarBrandAndModelByRentPriceDailyMin-16
+
+        var responseMessage16 = await client.GetAsync("https://localhost:7038/api/Statistics/GetCarBrandAndModelByRentPriceDailyMin");
+        if (responseMessage16.IsSuccessStatusCode)
+        {
+            int carBrandAndModelByRentPriceDailyMinRandom = random.Next(0, 101);
+            var jsonData16 = await responseMessage16.Content.ReadAsStringAsync();
+            var values16 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData16);
+            ViewBag.CarBrandAndModelByRentPriceDailyMin = values16!.CarBrandAndModelByRentPriceDailyMin;
+            ViewBag.CarBrandAndModelByRentPriceDailyMinRandom = carBrandAndModelByRentPriceDailyMinRandom;
+        }
+
+        #endregion
+
 
 
 

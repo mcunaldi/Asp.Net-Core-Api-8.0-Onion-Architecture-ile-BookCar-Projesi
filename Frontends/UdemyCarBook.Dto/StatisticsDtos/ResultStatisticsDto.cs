@@ -13,4 +13,8 @@ public class ResultStatisticsDto
     public int CarCountBySmallerThan1000 { get; set; }
     public int CarCountByFuelGasolineOrDiesel { get; set; }
     public int CarCountByFuelElectric { get; set; }
+    public string CarBrandAndModelByRentPriceDailyMax { get; set; }
+    public string CarBrandAndModelByRentPriceDailyMin{ get; set; }
+    public string BrandNameByMaxCar { get; set; }
+    public string BlogTitleByMaxBlogComment { get; set; }
 }
