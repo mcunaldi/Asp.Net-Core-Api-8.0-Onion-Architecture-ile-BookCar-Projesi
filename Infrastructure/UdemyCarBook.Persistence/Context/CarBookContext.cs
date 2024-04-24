@@ -6,7 +6,7 @@ public class CarBookContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=DESKTOP-LQ71RCC\\SQLEXPRESS;initial Catalog=UdemyCarBookDb;integrated Security=true;TrustServerCertificate=true;");
+        optionsBuilder.UseSqlServer("Server=BERKPC\\SQLEXPRESS;initial Catalog=UdemyCarBookDb;integrated Security=true;TrustServerCertificate=true;");
     }
 
     public DbSet<About> Abouts { get; set; }
@@ -30,4 +30,5 @@ public class CarBookContext : DbContext
     public DbSet<TagCloud> TagClouds { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<RentACar> RentACars { get; set; }
+    public DbSet<RentACarProcess> RentACarProcesses { get; set; }
 }
