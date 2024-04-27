@@ -31,4 +31,25 @@ public class CarBookContext : DbContext
     public DbSet<Comment> Comments { get; set; }
     public DbSet<RentACar> RentACars { get; set; }
     public DbSet<RentACarProcess> RentACarProcesses { get; set; }
+    public DbSet<Reservation> Reservations { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<CarPricing>().Property(p=> p.Amount).HasColumnType("decimal(18,2)");
+        modelBuilder.Entity<RentACarProcess>().Property(p => p.TotalPrice).HasColumnType("money");
+
+        modelBuilder.Entity<Reservation>()
+            .HasOne(x=> x.PickUpLocation)
+            .WithMany(y=> y.PickUpReservation)
+            .HasForeignKey(z=> z.PickUpLocationID)
+            .OnDelete(DeleteBehavior.ClientSetNull);
+
+        modelBuilder.Entity<Reservation>()
+            .HasOne(x => x.DropOffLocation)
+            .WithMany(y => y.DropOffReservation)
+            .HasForeignKey(z => z.DropOffLocationID)
+            .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+    }
 }

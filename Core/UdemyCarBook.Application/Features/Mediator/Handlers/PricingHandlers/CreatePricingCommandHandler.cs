@@ -10,7 +10,7 @@ public class CreatePricingCommandHandler(IRepository<Pricing> repository) : IReq
     {
         await repository.CreateAsync(new Pricing()
         {
-            Name = request.Name,
+            Name = request.Name,            
         });
     }
 }

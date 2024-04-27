@@ -16,6 +16,7 @@ public class GetCarPricingWithCarQueryHandler(ICarPricingRepository carPricingRe
             CarPricingID = x.CarPricingID,
             CoverImageUrl = x.Car.CoverImageUrl,
             Model = x.Car.Model,
+            CarID = x.Car.CarID
         }).ToList();
     }
 }

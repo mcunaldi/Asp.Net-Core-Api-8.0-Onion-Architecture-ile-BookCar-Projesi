@@ -1,6 +1,7 @@
 ﻿namespace UdemyCarBook.Dto.CarPricingDtos;
 public class ResultCarPricingWithCarDto
 {
+    public int CarID { get; set; }
     public int CarPricingID { get; set; }
     public string Brand { get; set; }
     public string Model { get; set; }

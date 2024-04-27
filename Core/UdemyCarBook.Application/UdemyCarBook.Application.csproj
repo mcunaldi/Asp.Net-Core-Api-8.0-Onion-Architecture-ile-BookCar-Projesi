@@ -14,4 +14,9 @@
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Mediator\Queries\ReservationQueries\" />
+    <Folder Include="Features\Mediator\Results\ReservationResults\" />
+  </ItemGroup>
+
 </Project>
