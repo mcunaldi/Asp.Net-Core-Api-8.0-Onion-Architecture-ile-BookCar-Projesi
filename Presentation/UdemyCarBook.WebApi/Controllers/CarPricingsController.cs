@@ -13,4 +13,13 @@ public class CarPricingsController(IMediator mediator) : ControllerBase
         var values = await mediator.Send(new GetCarPricingWithCarQuery());
         return Ok(values);
     }
+
+
+
+	[HttpGet("GetCarPricingWithTimePeriodList")]
+	public async Task<IActionResult> GetCarPricingWithTimePeriodList()
+	{
+		var values = await mediator.Send(new GetCarPricingWithTimePeriodQuery());
+        return Ok(values);
+	}
 }

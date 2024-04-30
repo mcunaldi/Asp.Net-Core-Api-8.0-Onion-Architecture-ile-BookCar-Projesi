@@ -7,16 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Mediator\Queries\ReservationQueries\**" />
+    <Compile Remove="Features\Mediator\Results\ReservationResults\**" />
+    <EmbeddedResource Remove="Features\Mediator\Queries\ReservationQueries\**" />
+    <EmbeddedResource Remove="Features\Mediator\Results\ReservationResults\**" />
+    <None Remove="Features\Mediator\Queries\ReservationQueries\**" />
+    <None Remove="Features\Mediator\Results\ReservationResults\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\UdemyCarBook.Domain\UdemyCarBook.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Mediator\Queries\ReservationQueries\" />
-    <Folder Include="Features\Mediator\Results\ReservationResults\" />
   </ItemGroup>
 
 </Project>

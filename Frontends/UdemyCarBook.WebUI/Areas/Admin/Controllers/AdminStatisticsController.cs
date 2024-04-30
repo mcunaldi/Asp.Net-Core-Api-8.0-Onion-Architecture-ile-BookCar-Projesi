@@ -198,7 +198,7 @@ public class AdminStatisticsController : Controller
 
         #endregion
 
-        #region GetCarCountByFuelGasolineOrDiesel-14
+        #region GetCarCountByFuelElectric-14
 
         var responseMessage14 = await client.GetAsync("https://localhost:7038/api/Statistics/GetCarCountByFuelElectric");
         if (responseMessage14.IsSuccessStatusCode)
