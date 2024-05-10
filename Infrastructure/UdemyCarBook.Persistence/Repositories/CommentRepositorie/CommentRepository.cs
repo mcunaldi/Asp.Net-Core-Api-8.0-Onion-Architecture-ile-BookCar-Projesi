@@ -44,4 +44,9 @@ public class CommentRepository<T>(CarBookContext context) : IGenericRepository<C
         context.Comments.Update(entity);
         context.SaveChanges();
     }
+
+    public int GetCountCommentByBlog(int id)
+    {
+        return context.Comments.Where(x=> x.BlogID == id).Count();
+    }
 }
