@@ -1,0 +1,13 @@
+﻿@model List<ResultCarFeautureByCarIdDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@foreach(var item in Model)
+{
+
+    <p>@item.FeatureID</p>
+
+}
+

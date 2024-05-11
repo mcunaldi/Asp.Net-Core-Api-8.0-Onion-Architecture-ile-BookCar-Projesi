@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Text;
 using UdemyCarBook.Dto.CategoryDtos;
 
-namespace UdemyCarBook.WebUI.Areas.Admin;
+namespace UdemyCarBook.WebUI.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Route("Admin/AdminCategory")]

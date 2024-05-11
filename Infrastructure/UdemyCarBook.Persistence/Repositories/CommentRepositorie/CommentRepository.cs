@@ -8,6 +8,7 @@ public class CommentRepository<T>(CarBookContext context) : IGenericRepository<C
     public void Create(Comment entity)
     {
         context.Comments.Add(entity);
+        context.SaveChanges();
     }
 
     public List<Comment> GetAll()
