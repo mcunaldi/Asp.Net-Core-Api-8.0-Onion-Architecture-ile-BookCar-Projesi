@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Text;
 using UdemyCarBook.Dto.CarFeatureDtos;
+using UdemyCarBook.Dto.FeatureDtos;
 
 namespace UdemyCarBook.WebUI.Areas.Admin.Controllers;
 
@@ -51,5 +52,21 @@ public class AdminCarFeatureDetailController : Controller
         }
 
         return RedirectToAction("Index", "AdminCar");
+    }
+
+
+    [Route("CreateFeatureByCarID")]
+    [HttpGet]
+    public async Task<IActionResult> CreateFeatureByCarID()
+    {
+        var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
+        var responseMessage = await client.GetAsync("https://localhost:7038/api/Features");
+        if (responseMessage.IsSuccessStatusCode)
+        {
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultFeatureDto>>(jsonData);
+            return View(values);
+        }
+        return View();
     }
 }

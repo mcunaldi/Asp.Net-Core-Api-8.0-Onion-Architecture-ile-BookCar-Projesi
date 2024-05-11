@@ -28,4 +28,11 @@ public class CarFeaturesController(IMediator mediator) : ControllerBase
         mediator.Send(new UpdateCarFeatureAvailableChangeToTrueCommand(id));
         return Ok("Güncelleme yapıldı.");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateCarFeatureByCarID(CreateCarFeatureByCarCommand command)
+    {
+        mediator.Send(command);
+        return Ok("Ekleme yapıldı.");
+    }
 }
