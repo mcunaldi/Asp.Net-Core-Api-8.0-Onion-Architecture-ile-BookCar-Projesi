@@ -13,7 +13,8 @@ public class GetCarFeatureByCarIdQueryHandler(ICarFeatureRepository repository) 
         {
             Available = x.Available,
             CarFeatureID = x.CarFeatureID,
-            FeatureID = x.FeatureID
+            FeatureID = x.FeatureID,
+            FeatureName = x.Feature.Name,
         }).ToList();
     }
 }

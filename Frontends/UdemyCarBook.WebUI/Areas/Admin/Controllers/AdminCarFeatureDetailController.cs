@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 using UdemyCarBook.Dto.CarFeatureDtos;
 
 namespace UdemyCarBook.WebUI.Areas.Admin.Controllers;
@@ -17,6 +18,7 @@ public class AdminCarFeatureDetailController : Controller
     }
 
     [Route("Index/{id}")]
+    [HttpGet]
     public async Task<IActionResult> Index(int id)
     {
         var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
@@ -28,5 +30,26 @@ public class AdminCarFeatureDetailController : Controller
             return View(values);
         }
         return View();
+    }
+
+    [HttpPost]
+    [Route("Index/{id}")]
+    public async Task<IActionResult> Index(List<ResultCarFeautureByCarIdDto> resultCarFeautureByCarIdDto)
+    {
+        foreach(var item in resultCarFeautureByCarIdDto)
+        {
+            if (item.Available)
+            {
+                var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
+                await client.GetAsync("https://localhost:7038/api/CarFeatures/CarFeatureChangeAvailableToTrue?id=" + item.CarFeatureID);
+            }
+            else
+            {
+                var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
+                await client.GetAsync("https://localhost:7038/api/CarFeatures/CarFeatureChangeAvailableToFalse?id=" + item.CarFeatureID);
+            }
+        }
+
+        return RedirectToAction("Index", "AdminCar");
     }
 }
