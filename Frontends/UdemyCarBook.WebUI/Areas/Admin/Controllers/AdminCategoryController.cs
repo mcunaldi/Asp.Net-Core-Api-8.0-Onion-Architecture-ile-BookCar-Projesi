@@ -73,7 +73,6 @@ public class AdminCategoryController : Controller
     [Route("UpdateCategory/{id}")]
     public async Task<IActionResult> UpdateCategory(int id)
     {
-
         var client = _httpClientFactory.CreateClient();
         var responseMessage = await client.GetAsync($"https://localhost:7038/api/Categories/{id}");
         if (responseMessage.IsSuccessStatusCode)
