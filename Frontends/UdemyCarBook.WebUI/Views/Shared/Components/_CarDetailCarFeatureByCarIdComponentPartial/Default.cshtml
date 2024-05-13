@@ -1,0 +1,61 @@
+﻿@using UdemyCarBook.Dto.CarFeatureDtos
+@model List<ResultCarFeautureByCarIdDto>
+
+
+<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+	<div class="row">
+        @{ 
+            int count = 0; 
+        }
+        <div class="col-md-4">
+            <ul class="features">
+            @foreach (var item in Model)
+            {
+                if (count % 5 == 0 && count != 0)
+                {
+                    @:</ul></div><div class="col-md-4"><ul class="features">
+                }
+
+                if (item.Available == true)
+                {
+                    <li class="check"><span class="ion-ios-checkmark"></span>@item.FeatureName</li>
+                }
+                else
+                {
+                    <li class="remove"><span class="ion-ios-close"></span>@item.FeatureName</li>
+                }
+                
+                count++;
+            }
+            </ul>
+        </div>
+	</div>
+</div>
+
+
+
+
+@* 
+<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+	<div class="row">
+		<div class="col-md-4">
+			<ul class="features">
+				@foreach (var item in Model)
+				{
+					if (item.Available == true && count < 4)
+					{
+
+						<li class="check"><span class="ion-ios-checkmark"></span>@item.FeatureName</li>
+						count++;
+					}
+					else if (item.Available == false && count < 4)
+					{
+
+						<li class="remove"><span class="ion-ios-checkmark"></span>@item.FeatureName</li>
+						count++;
+					}
+				}
+			</ul>
+		</div>
+	</div>
+</div> *@
