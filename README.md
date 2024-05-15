@@ -1,12 +1,4 @@
 # UdemyCarBook
-# # Proje İçeriği
-Özellikler ve Teknikler
-CORS ve Mediator Desenleri: Güvenlik ve ara katman yönetimi için CORS ayarları ve Mediator tasarım deseni entegrasyonu.
-Repository ve Unit of Work Yapıları: Veritabanı işlemlerinin daha organize ve bakımı kolay hale getirilmesi için Repository ve Unit of Work tasarım desenleri.
-JSON Web Token (JWT) ile Güvenlik: Uygulamalar arası güvenli veri transferi için JSON Web Token kullanımı.
-SignalR ile Gerçek Zamanlı Uygulamalar: Web uygulamalarında gerçek zamanlı veri akışı ve etkileşim için SignalR kütüphanesi.
-Pivot Table, DTO ve Fluent Validation Teknikleri: Veri yönetimi ve validasyon işlemleri için Pivot Table kullanımı, Data Transfer Objects (DTO) ve Fluent Validation yöntemleri.
-
 ![Capture1](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/252c8f75-f20e-4e54-a163-50d9c7813183)
 ![Capture2](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/f5cbf8de-5ba0-4c09-b6cd-b16c76450541)
 ![Capture3](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/1d71a038-9803-4d5b-be4d-ee2b4206f89a)
