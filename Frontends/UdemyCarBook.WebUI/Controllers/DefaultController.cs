@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using UdemyCarBook.Dto.LocationDtos;
 
 namespace UdemyCarBook.WebUI.Controllers;
@@ -16,19 +17,25 @@ public class DefaultController : Controller
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
-        var responseMessage = await client.GetAsync("https://localhost:7038/api/Locations");
+        var token = User.Claims.FirstOrDefault(x => x.Type == "accessToken")?.Value;
+        if (token != null)
+        {
+            var client = _httpClientFactory.CreateClient(); //istemci anlamına geliyor.
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var responseMessage = await client.GetAsync("https://localhost:7038/api/Locations");
 
-        var jsonData = await responseMessage.Content.ReadAsStringAsync();
-        var values = JsonConvert.DeserializeObject<List<ResultLocationDto>>(jsonData);
-        List<SelectListItem> values2 = (from x in values
-                                        select new SelectListItem
-                                        {
-                                            Text = x.Name,
-                                            Value = x.LocationID.ToString()
-                                        }).ToList();
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultLocationDto>>(jsonData);
+            List<SelectListItem> values2 = (from x in values
+                                            select new SelectListItem
+                                            {
+                                                Text = x.Name,
+                                                Value = x.LocationID.ToString()
+                                            }).ToList();
 
-        ViewBag.v = values2;
+            ViewBag.v = values2;
+        }
+
         return View();
     }
 
