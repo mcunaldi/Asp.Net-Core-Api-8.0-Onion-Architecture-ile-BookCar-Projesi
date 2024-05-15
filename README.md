@@ -1,4 +1,11 @@
 # UdemyCarBook
+# # Proje İçeriği
+CORS ve Mediator desenleri
+Repository ve Unit of Work yapıları
+JSON Web Token ile güvenlik
+SignalR ile gerçek zamanlı uygulamalar
+Pivot Table, DTO ve Fluent Validation teknikleri
+
 ![Capture1](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/252c8f75-f20e-4e54-a163-50d9c7813183)
 ![Capture2](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/f5cbf8de-5ba0-4c09-b6cd-b16c76450541)
 ![Capture3](https://github.com/mcunaldi/Asp.Net-Core-Api-8.0-Onion-Architecture-ile-BookCar-Projesi/assets/122215221/1d71a038-9803-4d5b-be4d-ee2b4206f89a)
